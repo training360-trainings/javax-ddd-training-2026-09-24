@@ -30,6 +30,11 @@ public class CourseRepository implements CourseRepositoryPort {
         return courseJpaRepository.findById(id).map(this::convert);
     }
 
+    @Override
+    public boolean isCourseWithCode(CourseCode code) {
+        return courseJpaRepository.countByCode(code.value()) > 0;
+    }
+
     private CourseJpaEntity convert(Course course) {
         var entity = new CourseJpaEntity(course.getId(), course.getCode().value(), course.getTitle(), course.getLimit(), new HashSet<>());
         for (Enrollment enrollment : course.getEnrollments()) {
