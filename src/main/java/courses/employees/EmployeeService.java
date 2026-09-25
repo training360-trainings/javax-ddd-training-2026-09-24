@@ -4,10 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class EmployeeService {
+public class EmployeeService implements EmployeeGateway {
 
     private final EmployeeRepository employeeRepository;
 
@@ -21,5 +22,8 @@ public class EmployeeService {
         return employeeRepository.findAllBy(EmployeeDto.class);
     }
 
-
+    @Override
+    public Optional<EmployeeDto> findById(long id) {
+        return employeeRepository.findDtoById(id, EmployeeDto.class);
+    }
 }
