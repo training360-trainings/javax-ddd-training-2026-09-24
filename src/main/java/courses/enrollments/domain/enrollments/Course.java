@@ -45,4 +45,8 @@ public class Course {
         enrollments.add(enrollment);
         return enrollment;
     }
+
+    public void cancel(EmployeeId employeeId) {
+        enrollments.removeIf(e -> e.employeeId().equals(employeeId));
+    }
 }

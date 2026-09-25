@@ -57,4 +57,10 @@ public class CourseRepository implements CourseRepositoryPort {
 //        return courseJpaRepository.findAllDto();
         return courseJpaRepository.findAllBy(CourseDto.class);
     }
+
+    @Override
+    public List<Course> findCoursesWithEnrollments(EmployeeId employeeId) {
+        return courseJpaRepository.findCoursesWithEnrollments(employeeId.value())
+                .stream().map(this::convert).collect(Collectors.toList());
+    }
 }

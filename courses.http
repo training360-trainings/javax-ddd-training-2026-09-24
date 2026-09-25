@@ -9,12 +9,12 @@ Content-Type: application/json
 }
 
 ### Enroll
-PUT http://localhost:8080/api/courses/1/enrollments
+PUT http://localhost:8080/api/courses/2/enrollments
 Content-Type: application/json
 
 {
-  "courseId": 1,
-  "employeeId": 21
+  "courseId": 2,
+  "employeeId": 2
 }
 
 ### Find all courses
@@ -30,3 +30,6 @@ Content-Type: application/json
 
 ### Find all employees
 GET http://localhost:8080/api/employees
+
+### Leave
+DELETE http://localhost:8080/api/employees/2

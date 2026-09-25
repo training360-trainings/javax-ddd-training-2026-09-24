@@ -1,6 +1,7 @@
 package courses.employees;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.Optional;
 public class EmployeeService implements EmployeeGateway {
 
     private final EmployeeRepository employeeRepository;
+
+    private final ApplicationEventPublisher applicationEventPublisher;
 
     public EmployeeDto join(EmployeeDto employee) {
         var entity = new Employee(null, employee.name());
@@ -25,5 +28,10 @@ public class EmployeeService implements EmployeeGateway {
     @Override
     public Optional<EmployeeDto> findById(long id) {
         return employeeRepository.findDtoById(id, EmployeeDto.class);
+    }
+
+    public void leave(long id) {
+        applicationEventPublisher.publishEvent(new EmployeeHasLeaved(id));
+        employeeRepository.deleteById(id);
     }
 }
