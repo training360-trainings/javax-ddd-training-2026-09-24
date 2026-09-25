@@ -1,5 +1,6 @@
-package courses.employees;
+package courses.employees.internal;
 
+import courses.employees.EmployeeDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

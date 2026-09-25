@@ -1,7 +1,5 @@
 package courses.enrollments.application.usecase;
 
-import courses.employees.EmployeeGateway;
-import courses.employees.EmployeeService;
 import courses.enrollments.application.inboundports.EnrollCommand;
 import courses.enrollments.application.inboundports.EnrollmentDto;
 import courses.enrollments.application.outboundports.CourseRepositoryPort;

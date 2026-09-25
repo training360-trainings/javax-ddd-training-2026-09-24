@@ -1,5 +1,8 @@
-package courses.employees;
+package courses.employees.internal;
 
+import courses.employees.EmployeeDto;
+import courses.employees.EmployeeGateway;
+import courses.employees.EmployeeHasLeaved;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
