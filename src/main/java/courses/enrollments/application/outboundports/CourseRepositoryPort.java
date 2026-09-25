@@ -1,6 +1,7 @@
 package courses.enrollments.application.outboundports;
 
 import courses.enrollments.application.inboundports.CourseDto;
+import courses.enrollments.application.inboundports.EnrollmentDto;
 import courses.enrollments.domain.enrollments.Course;
 import courses.enrollments.domain.enrollments.CourseCode;
 import courses.enrollments.domain.enrollments.EmployeeId;
@@ -19,4 +20,6 @@ public interface CourseRepositoryPort {
     List<CourseDto> findAll();
 
     List<Course> findCoursesWithEnrollments(EmployeeId employeeId);
+
+    List<EnrollmentDto> findEnrollmentsByCourseId(long courseId);
 }

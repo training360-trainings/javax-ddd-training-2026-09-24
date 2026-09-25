@@ -1,7 +1,6 @@
 package courses.enrollments.adapter.repository;
 
-import courses.enrollments.application.inboundports.CourseDto;
-import courses.enrollments.domain.enrollments.Course;
+import courses.enrollments.application.inboundports.EnrollmentDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -20,4 +19,10 @@ public interface CourseJpaRepository extends JpaRepository<CourseJpaEntity, Long
                         where c.id in (select e.course.id from EnrollmentJpaEntity e where e.employeeId = :employeeId)
                         """)
     List<CourseJpaEntity> findCoursesWithEnrollments(long employeeId);
+
+    @Query("""
+        select new courses.enrollments.application.inboundports.EnrollmentDto(e.course.id, e.employeeId, e.enrollmentDate)
+                from EnrollmentJpaEntity e where e.course.id = :courseId
+        """)
+    List<EnrollmentDto> findEnrollmentsWithCourseId(long courseId);
 }
