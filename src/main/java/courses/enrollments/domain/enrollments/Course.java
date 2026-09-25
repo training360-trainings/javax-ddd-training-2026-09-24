@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Getter
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor // Ezt csak a perzisztens réteg hívhatja, a service nem
 public class Course {
 
     private Long id;
