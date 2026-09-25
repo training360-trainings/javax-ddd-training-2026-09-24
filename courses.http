@@ -3,8 +3,8 @@ POST http://localhost:8080/api/courses
 Content-Type: application/json
 
 {
-  "code": "JAVAX-DDD",
-  "title": "Domain Driven Design",
+  "code": "JAVAX-DDD2",
+  "title": "Domain Driven Design2",
   "limit": 5
 }
 
@@ -16,3 +16,6 @@ Content-Type: application/json
   "courseId": 1,
   "employeeId": 21
 }
+
+### Find all courses
+GET http://localhost:8080/api/courses

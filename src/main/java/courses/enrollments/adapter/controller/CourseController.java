@@ -5,12 +5,21 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/courses")
 @RequiredArgsConstructor
 public class CourseController {
 
     private final CourseApplicationServicePort service;
+
+    private final CourseQueryServicePort  queryService;
+
+    @GetMapping
+    public List<CourseDto> findAll() {
+        return queryService.findAll();
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
