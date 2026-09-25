@@ -19,3 +19,14 @@ Content-Type: application/json
 
 ### Find all courses
 GET http://localhost:8080/api/courses
+
+### Join
+POST http://localhost:8080/api/employees
+Content-Type: application/json
+
+{
+  "name": "John Doe"
+}
+
+### Find all employees
+GET http://localhost:8080/api/employees
